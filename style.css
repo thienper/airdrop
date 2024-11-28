@@ -19,3 +19,31 @@ header {
 p {
     margin-bottom: 10px;
 }
+
+@keyframes colorChange {
+    0% {
+        color: rgb(93, 9, 9);
+    }
+
+    25% {
+        color: rgb(6, 6, 104);
+    }
+
+    50% {
+        color: rgb(4, 62, 4);
+    }
+
+    75% {
+        color: rgb(89, 89, 5);
+    }
+
+    100% {
+        color: rgb(98, 8, 8);
+    }
+}
+
+/* Áp dụng hiệu ứng */
+.rainbow-text {
+    font-weight: bold;
+    animation: colorChange 4s infinite;
+}
