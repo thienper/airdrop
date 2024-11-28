@@ -47,3 +47,7 @@ p {
     font-weight: bold;
     animation: colorChange 4s infinite;
 }
+
+.star {
+    animation: colorChange 2s infinite;
+}
