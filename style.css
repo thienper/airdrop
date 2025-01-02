@@ -16,6 +16,18 @@ header {
     font-weight: bold;
 }
 
+table {
+    margin: 10px;
+}
+
+table thead {
+    background-color: rgba(91, 217, 71, 0.676);
+}
+
+table tbody {
+    font-size: 20px;
+}
+
 p {
     margin-bottom: 10px;
 }
