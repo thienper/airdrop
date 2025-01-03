@@ -16,12 +16,26 @@ header {
     font-weight: bold;
 }
 
+.menu {}
+
+.nav-tabs li:hover {
+    background-color: green;
+}
+
+.nav-tabs li {
+    border: 2px solid rgb(24, 104, 4);
+    margin-right: 5px;
+    background-color: rgb(3, 175, 3);
+}
+
 table {
     margin: 10px;
+    margin: none;
 }
 
 table thead {
-    background-color: rgba(91, 217, 71, 0.676);
+    background-color: rgba(90, 217, 71, 0);
+    color: brown;
 }
 
 table tbody {
@@ -62,4 +76,8 @@ p {
 
 .star {
     animation: colorChange 2s infinite;
+}
+
+.content {
+    border-top: 2px ridge rgba(0, 0, 0, 0.417);
 }
