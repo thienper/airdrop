@@ -56,3 +56,36 @@ socketGrass.onerror = (error) => {
 socketGrass.onclose = () => {
     console.log('WebSocket connection closed');
 };
+
+
+//////////////
+
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+let onlineUsers = 0;
+
+wss.on('connection', (ws) => {
+    onlineUsers++;
+    console.log(`New connection! Online users: ${onlineUsers}`);
+
+    // Gửi số người đang online tới tất cả kết nối
+    wss.clients.forEach((client) => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send(JSON.stringify({ onlineUsers }));
+        }
+    });
+
+    ws.on('close', () => {
+        onlineUsers--;
+        console.log(`Connection closed! Online users: ${onlineUsers}`);
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({ onlineUsers }));
+            }
+        });
+    });
+});
+
+console.log('WebSocket server is running on ws://localhost:8080');
+

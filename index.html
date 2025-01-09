@@ -170,7 +170,18 @@
       <h2>Bitcoin Price (Real-Time)</h2>
       <p>Current Price: <span id="coin-price">Loading...</span></p>
    </div> -->
+   <p>Số người đang online: <span id="online-users">0</span></p>
 
+   <script>
+      // Kết nối WebSocket tới server
+      const socket = new WebSocket('ws://localhost:8080');
+
+      // Nhận dữ liệu từ server
+      socket.onmessage = (event) => {
+         const data = JSON.parse(event.data);
+         document.getElementById('online-users').textContent = data.onlineUsers;
+      };
+   </script>
 </body>
 
 </html>
